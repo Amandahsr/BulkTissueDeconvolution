@@ -4,7 +4,7 @@ library(ggplot2)
 <<<<<<< HEAD
 #read dataset
 dataset <- read_excel("~/Documents/Internships/UROPS/TPM.xlsx")
-TPM <- dataset[,-1]
+TPM <- datase[,-1]
 
 #transform into appropriate format
 =======
