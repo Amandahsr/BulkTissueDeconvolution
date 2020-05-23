@@ -14,7 +14,7 @@ tsne <- Rtsne(tpm_edited, check_duplicates = FALSE, pca = TRUE, perplexity = 5, 
 #getting 2D matrix
 tsne_matrix <- as.data.frame(tsne$Y) 
 
-#plot t-SNE
+#plot t-SNE without clustering
 tsne_plot <- ggplot(tsne_2D_matrix, aes(x=V1, y=V2))
 tsne_plot + geom_point() + xlab("Dimension 1") + ylab("Dimension 2") + ggtitle("t-SNE plot") + theme_bw() + theme(panel.grid=element_blank())
 
