@@ -6,7 +6,7 @@ dataset <- read_excel("~/Documents/Internships/UROPS/TPM.xlsx")
 TPM <- dataset[,-1]
 
 #appropriate data format
-tpm_edited <- as.matrix((TPM))
+tpm_edited <- as.matrix(t(TPM))
 
 #compute t-SNE
 tsne <- Rtsne(tpm_edited, check_duplicates = FALSE, pca = TRUE, perplexity = 5, theta = 0.5, dims = 2)
