@@ -7,7 +7,7 @@ library(patchwork)
 UMI <- fread("~/Documents/Internships/UROPS/GSE109816_normal_heart_umi_matrix.csv")
 counts <- data.frame(UMI[,-1])
 rownames(counts) <- UMI$V1
-Sample.info <- fread("~/Documents/Internships/UROPS/GSE109816_normal_heart_cell_info.csv")
+Sample.info <- fread("~/Documents/Internships/UROPS/GSE109816_normal_heart_cell_info.csv"
 Labels <- cbind(Sample.info$ID, Sample.info$Type) 
 
 #Merge UMI dataset with Tissue type labels
