@@ -113,4 +113,3 @@ DimPlot(umap, reduction = "umap", label = TRUE)
 
 #Extract cell-type proportions for bulk-tissue deconvolution
 celltype.proportions <- prop.table(table(Idents(umap)))
-
