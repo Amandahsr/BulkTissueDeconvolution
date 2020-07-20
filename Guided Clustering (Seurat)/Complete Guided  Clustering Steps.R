@@ -81,7 +81,6 @@ DimPlot(umap, reduction = "umap", label = TRUE)
 #Perform second iteration of DEG analysis to confirm cell types.
 #Export DEGs for bulk tissue deconvolution.
 clusters2.markers <- FindAllMarkers(umap, only.pos=TRUE, return.thresh = 0.05)
-write.csv(clusters2.markers, "DEGs_Guided_Clustering.csv")
 
 #Relabel clusters by cell types
 CM.cells <- umap.coordinates[(umap.coordinates$ident == '0')|(umap.coordinates$ident == '2')|
