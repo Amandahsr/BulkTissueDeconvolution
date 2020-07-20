@@ -1,4 +1,4 @@
-#This script details references and citations of publicly available datasets and softwares used in this project.
+#This script details the URL and references of publicly available datasets and softwares used in this project.
 #Bulk tissue samples and stained normal heart tissue samples used are not available for reference.
 
 ##Datasets used
