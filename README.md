@@ -1,6 +1,6 @@
 # UROPS: Bulk Tissue Cell-Type Deconvolution using scRNA-seq as Reference
 
-This github repository details the code used in the UROPS project. 
+This github repository details the code used in my UROPS project. 
 The aim of this project is to evaluate the accuracy of bulk tissue deconvolution algorithms using scRNA-seq as reference.
 
 The general project workflow is as follows:
