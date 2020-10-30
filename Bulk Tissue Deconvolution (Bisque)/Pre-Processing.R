@@ -1,6 +1,5 @@
 #This script details the pre-processing steps done on bulk RNA-seq and unnormalised scRNA-seq before bulk tissue deconvolution was performed using the Bisque R package. 
 #Pre-processing is required because guided clustering was performed using a subset of the original scRNA-seq data, and the project is focused on deconvoluting normal heart tissue samples
-
 library(Seurat)
 library(Biobase)
 library(data.table)
@@ -12,7 +11,7 @@ sc.data <-  ReadH5AD("path/healthy_human_4chamber_map_unnormalized_V3.h5ad")
 sc.counts <- sc.data@assays$RNA@counts
 
 #Load gene name to gene ID matrix. Replace gene names with gene IDs in scRNA-seq to make it comparable with gene IDs in bulk RNA-seq.
-sc.genes <- read.table("path/genes.tsv")
+sc.genes <- readRDS("path/GeneNametoID.RData")
 rownames(sc.counts) <- sc.genes$V1
 
 #Label cells in scRNA-seq by individual IDs for Bisque to perform deconvolution.
@@ -28,7 +27,7 @@ sampled.cells <- readRDS("path/SampledCells.RData")
 #Subset scRNA-seq data to retain only sampled cells.
 sc.counts <- sc.counts[,match(sampled.cells$SampleID,colnames(sc.counts))]
 
-#Convert scRNA-seq data to ExpressionSet format for bulk tissue deconvolution.
+#Convert scRNA-seq data to ExpressionSet format for bulk tissue deconvolution. Incorporate guided clustering results into the ExpressionSet by annotating cells with cell-types.
 sc.matrix.counts <- as.matrix(sc.counts[1:33694,])
 individual.ids <- data.frame(sc.counts[33695,])
 rownames(individual.ids) <- NULL
