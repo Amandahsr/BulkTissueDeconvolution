@@ -20,4 +20,3 @@ pca <- RunPCA(scaled.data, features = VariableFeatures(object = variable.genes))
 #Cluster cells by creating a KNN graph and optimizing it.
 clusters <- FindNeighbors(pca)
 clusters <- FindClusters(clusters, resolution = 1)
-
