@@ -19,7 +19,7 @@ URL: https://david.ncifcrf.gov/
 3.BisqueRNA 1.0.3 used for bulk tissue deconvolution
 URL: https://cran.r-project.org/web/packages/BisqueRNA/vignettes/bisque.html
 
-4.R 3.6.3 used for codes detailed in this project
+4.All code in this repository is done in R 3.6.3
 URL: https://www.r-project.org/
 
 ##References:
