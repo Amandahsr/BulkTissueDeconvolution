@@ -1,5 +1,5 @@
-#This script details the pre-processing steps done on bulk RNA-Seq and unnormalised scRNA-seq before bulk tissue deconvolution was performed using the Bisque R package. 
-#Pre-processing was done due to RAM limitations.
+#This script details the pre-processing steps done on unnormalised scRNA-seq before bulk tissue deconvolution was performed using the Bisque R package. 
+#Pre-processing is required because guided clustering was performed using a subset of the original scRNA-seq data.
 
 library(Seurat)
 library(Biobase)
