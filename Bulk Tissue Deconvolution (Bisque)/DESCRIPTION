@@ -1,0 +1,16 @@
+Description: Pipeline for Reference-Based Bulk Tissue Deconvolution in Bisque
+
+The bulk RNA-seq data used from Tan et. al. is publicly available here: 
+https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE141910
+
+The pipeline for bulk tissue deconvolution using Bisque is split into 3 main steps:
+1. Pre-processing.R - Pre-processing of scRNA-seq data for QC
+2. Bulk Tissue Deconvolution.R - Performing reference-based bulk tissue deconvolution using BisqueRNA R package
+3. Output.R - Extracting cell-type proportions from Bisque deconvolution results
+*The complete steps for reference-based bulk RNA-seq deconvolution can be found in Compiled Deconvolution Steps.R.
+
+Required data to perform Bisque deconvolution is deposited in this folder:
+1. scEXP.RData - Pre-processed unnormalised scRNA-seq data in ExpressionSet format.
+2. bulkEXP.RData - Pre-processed bulk RNA-seq data in ExpressionSet format.
+3. SampledCells.RData - Guided clustering output from Seurat.
+4. ClusteringDEG.RData - DEGs found from guided clustering output from Seurat.
