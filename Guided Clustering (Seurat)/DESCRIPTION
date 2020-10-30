@@ -1,5 +1,8 @@
 Description: Pipeline for Guided CLustering in Seurat
 
+The scRNA-seq data used from Tucker et. al. is publicly available here: 
+https://singlecell.broadinstitute.org/single_cell/study/SCP498/transcriptional-and-cellular-diversity-of-the-human-heart#study-download
+
 The pipeline for guided clustering using Seurat is split into 3 main steps:
 1. Pre-processing.R - Pre-processing of scRNA-seq data for QC
 2. Guided clustering.R - Performing guided clustering using Seurat R package
