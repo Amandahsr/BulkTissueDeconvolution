@@ -1,5 +1,4 @@
 #This script details the full scRNA-seq guided clustering pipeline.
-
 library(Seurat)
 library(Matrix)
 
