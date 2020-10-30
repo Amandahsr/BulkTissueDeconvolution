@@ -1,4 +1,4 @@
-#This script details the pre-processing of Bulk RNbulk tissue deconvolution step using the Bisque Reference-Based Decomposition Model.
+#This script details the bulk tissue deconvolution step using the Bisque Reference-Based Decomposition Model.
 #Bisque requires 4 inputs: 1) Unnormalised bulk RNA-seq data, 2) Unnormalised scRNA-seq data, 3) Cell-type proportions from guided clustering results, 4) DEGs from guided clustering step (OPTIONAL).library(BisqueRNA)
 library(Bisque)
 library(Biobase)
@@ -16,6 +16,3 @@ gene.ids <- as.vector(gene.markers$V1)
 
 #Perform bulk tissue deconvolution using the Bisque Reference-Based Decomposition Model. use.overlap was set to FALSE because there are no common samples between scRNA-seq and bulk RNA-seq data.
 control.est <- BisqueRNA::ReferenceBasedDecomposition(bulk.exp, sc.exp, markers = gene.ids, use.overlap = FALSE)
-
-
-
