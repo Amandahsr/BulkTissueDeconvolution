@@ -1,29 +1,29 @@
-#This script details the pre-processing step done on scRNA-seq before bulk tissue deconvolution was performed.
+#This script details the pre-processing steps done on bulk RNA-Seq and unnormalised scRNA-seq before bulk tissue deconvolution was performed using the Bisque R package. 
+#Pre-processing was done due to RAM limitations.
+#Bisque takes in 4 inputs: 1) unnormalised scRNA-seq 2) bulk RNA-seq 3) Guided cLustering results 4) Proportion of cell-types identified from guided clustering.
 
-library(data.table)
 library(Seurat)
 library(Biobase)
+library(data.table)
 
-#Read unnormalised scRNA-seq dataset.
-#Dataset contains 287,269 cells from the 4 chambers of normal human heart samples (LV, LA, RV, RA) and 33,694 genes.
-sc.data <-  ReadH5AD("/Volumes/Seagate Backup Plus Drive/UROPS/Datasets/Single-Cell Data/healthy_human_4chamber_map_unnormalized_V3.h5ad")
+#Load unnormalised scRNA-seq data and extract counts.
+sc.data <-  ReadH5AD("path/healthy_human_4chamber_map_unnormalized_V3.h5ad")
 sc.counts <- sc.data@assays$RNA@counts
 
-#Replace gene names with gene IDs in scRNA-seq because genes are labelled by IDs in bulk RNA-seq.
-sc.genes <- read.table("/Volumes/Seagate Backup Plus Drive/UROPS/Datasets/Single-Cell Data/genes.tsv")
+#Load gene name to gene ID matrix. Replace gene names with gene IDs in scRNA-seq to make it comparable with gene IDs in bulk RNA-seq.
+sc.genes <- read.table("path/genes.tsv")
 rownames(sc.counts) <- sc.genes$V1
 
-#Label cells by individual IDs.
+#Label cells in scRNA-seq by individual IDs for Bisque to perform deconvolution.
 individual.ids <- sc.data@meta.data$biological.individual
 individual.ids <- t(individual.ids)
 sc.counts <- rbind(sc.counts, individual.ids)
 
-#Read data for LV cells that were randomly sampled using proportional sampling.
-#Contains 10% of the cells from each cell type.
-#Cells are labelled by cell type.
-sampled.cells <- read.csv("/Volumes/Seagate Backup Plus Drive/UROPS/Datasets/Bulk Tissue Data/Proportional_sampling_cells.csv")
+#Load guided clustering output. Cells are annotated with cell-types for Bisque to reference. 
+#Note that only a subset of the original output was used due to RAM limitations. The subset used contains 10% of the cells from each cell type, randomly selected via proportional sampling.
+sampled.cells <- readRDS("path/SampledCells.RData")
 
-#Subset scRNA-seq data to only sampled cells.
+#Subset scRNA-seq data to retain only sampled cells.
 sc.counts <- sc.counts[,match(sampled.cells$SampleID,colnames(sc.counts))]
 
 #Convert scRNA-seq data to ExpressionSet format for bulk tissue deconvolution.
