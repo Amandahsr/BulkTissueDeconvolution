@@ -1,0 +1,8 @@
+Description: Pipeline for Guided CLustering in Seurat
+
+The pipeline for guided clustering using Seurat is split into 3 main steps:
+1. Pre-processing.R - Pre-processing of scRNA-seq data for QC
+2. Guided clustering.R - Performing guided clustering using Seurat R package
+3. Output.R - Visualising guided clustering results and identification of heart cell-types
+
+The complete steps for scRNA-seq clustering can be found in Compiled scRNA-seq clustering steps.R.
