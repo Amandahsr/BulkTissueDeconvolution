@@ -1,6 +1,5 @@
 #This script details the pre-processing steps done on bulk RNA-Seq and unnormalised scRNA-seq before bulk tissue deconvolution was performed using the Bisque R package. 
 #Pre-processing was done due to RAM limitations.
-#Bisque takes in 4 inputs: 1) unnormalised scRNA-seq 2) bulk RNA-seq 3) Guided cLustering results 4) Proportion of cell-types identified from guided clustering.
 
 library(Seurat)
 library(Biobase)
