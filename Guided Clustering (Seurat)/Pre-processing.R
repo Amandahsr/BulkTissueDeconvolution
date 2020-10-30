@@ -1,5 +1,7 @@
 #This script details the pre-processing step done on scRNA-seq before guided clustering was performed.
-#The scRNA-seq data used is publicly available from Tucker et. al. which can be downloaded [here](https://singlecell.broadinstitute.org/single_cell/study/SCP498/transcriptional-and-cellular-diversity-of-the-human-heart#study-download).
+#The scRNA-seq data used is publicly available from Tucker et. al. which can be downloaded her:
+#https://singlecell.broadinstitute.org/single_cell/study/SCP498/transcriptional-and-cellular-diversity-of-the-human-heart#study-download
+
 library(Seurat)
 library(Matrix)
 
